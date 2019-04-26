@@ -5,16 +5,18 @@ import CreateCharacter from './Components/CreateCharacter';
 import CharacterList from './Components/CharacterList';
 import Dice from './Components/Dice';
 import Settings from './Components/Settings';
-import './App.css';
+import './App.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faUserPlus,
   faThList,
   faDiceD20,
-  faCog
+  faCog,
+  faArrowLeft,
+  faDiceD6
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faUserPlus, faThList, faDiceD20, faCog);
+library.add(faUserPlus, faThList, faDiceD20, faCog, faArrowLeft, faDiceD6);
 
 class App extends Component {
   render() {
