@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Settings.scss';
 
 export default class Settings extends Component {
   render() {
     return (
       <div className="Settings">
-        <h1>Settings</h1>
+        <header>
+          <Link to="/">
+            <FontAwesomeIcon icon="arrow-left" size="lg" />
+          </Link>
+          <h1>Settings</h1>
+        </header>
       </div>
     );
   }
