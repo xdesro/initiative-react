@@ -15,31 +15,43 @@ export default class Dice extends Component {
         </header>
         <section>
           <p>Swipe to roll, or tap for more options.</p>
-          <div className="d4">
-            <FontAwesomeIcon icon="dice-d6" size="lg" />
-            D4
-          </div>
-          <div>
-            <FontAwesomeIcon icon="dice-d6" size="lg" />
-            D6
-          </div>
-          <div>
-            <FontAwesomeIcon icon="dice-d6" size="lg" />
-            D8
-          </div>
-          <div>
-            <FontAwesomeIcon icon="dice-d6" size="lg" />
-            D10
-          </div>
-          <div>
-            <FontAwesomeIcon icon="dice-d6" size="lg" />
-            D12
-          </div>
-          <div className="d20">
-            <FontAwesomeIcon icon="dice-d20" size="lg" />
-            D20
-            <p>Quick Roll</p>
-          </div>
+          <Link to="/DiceRoller/4">
+            <div className="d4">
+              <FontAwesomeIcon icon="dice-d6" size="lg" />
+              D4
+            </div>
+          </Link>
+          <Link to="/DiceRoller/6">
+            <div>
+              <FontAwesomeIcon icon="dice-d6" size="lg" />
+              D6
+            </div>
+          </Link>
+          <Link to="/DiceRoller/8">
+            <div>
+              <FontAwesomeIcon icon="dice-d6" size="lg" />
+              D8
+            </div>
+          </Link>
+          <Link to="/DiceRoller/10">
+            <div>
+              <FontAwesomeIcon icon="dice-d6" size="lg" />
+              D10
+            </div>
+          </Link>
+          <Link to="/DiceRoller/12">
+            <div>
+              <FontAwesomeIcon icon="dice-d6" size="lg" />
+              D12
+            </div>
+          </Link>
+          <Link to="/DiceRoller/20">
+            <div className="d20">
+              <FontAwesomeIcon icon="dice-d20" size="lg" />
+              D20
+              <p>Quick Roll</p>
+            </div>
+          </Link>
         </section>
       </div>
     );
