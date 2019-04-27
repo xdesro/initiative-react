@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './CharacterList.scss';
+import '../scss/pages/CharacterList.scss';
 
 export default class CharacterList extends Component {
   constructor(props) {

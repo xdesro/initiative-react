@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './Settings.scss';
+import '../scss/pages/Settings.scss';
 
 export default class Settings extends Component {
   render() {

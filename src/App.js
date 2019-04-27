@@ -6,6 +6,7 @@ import CharacterList from './Components/CharacterList';
 import Dice from './Components/Dice';
 import Settings from './Components/Settings';
 import './App.scss';
+import './scss/style.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faUserPlus,
@@ -21,7 +22,7 @@ library.add(faUserPlus, faThList, faDiceD20, faCog, faArrowLeft, faDiceD6);
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Router>
           <Route exact path="/" component={Home} />
           <Route path="/CharacterCreate" component={CharacterCreate} />
