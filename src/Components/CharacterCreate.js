@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './CreateCharacter.scss';
-export default class CreateCharacter extends Component {
+import './CharacterCreate.scss';
+export default class CharacterCreate extends Component {
   handleSubmit = e => {
     e.preventDefault();
   };
 
   render() {
     return (
-      <div className="CreateCharacter">
+      <div className="CharacterCreate">
         <header>
           <Link to="/">
             <FontAwesomeIcon icon="arrow-left" size="lg" />

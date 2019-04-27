@@ -15,7 +15,7 @@ export default class Home extends Component {
           </p>
         </header>
         <section>
-          <Link to="/CreateCharacter">
+          <Link to="/CharacterCreate">
             <div>
               <FontAwesomeIcon icon="user-plus" />
               <p>Create New Character</p>

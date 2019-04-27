@@ -48,7 +48,7 @@ export default class CharacterList extends Component {
           })}
         </div>
         <footer>
-          <Link to="/CreateCharacter">
+          <Link to="/CharacterCreate">
             <button>Create New Character</button>
           </Link>
         </footer>
