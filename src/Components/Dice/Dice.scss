@@ -1,0 +1,62 @@
+.dice {
+  display: flex;
+  flex-direction: column;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    svg {
+      color: white;
+      margin-left: 20px;
+    }
+
+    h1 {
+      margin-left: 10px;
+    }
+  }
+
+  section {
+    width: 90vw;
+    align-self: center;
+    text-align: start;
+
+    p {
+      margin-bottom: 40px;
+    }
+
+    div {
+      border-bottom: 1px solid white;
+      padding: 40px 0;
+
+      button{
+        height: 100%;
+        width: 100%;
+        text-align: left;
+        padding: 0;
+      }
+
+      svg {
+        margin-left: 20px;
+        margin-right: 10px;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .d4 {
+      border-top: 1px solid white;
+    }
+
+    .d20 {
+      background-color: white;
+      color: black;
+      width: 100%;
+      p {
+        margin-left: 45px;
+      }
+    }
+  }
+}
