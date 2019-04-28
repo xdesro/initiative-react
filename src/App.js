@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Home from './Components/Home';
 import CharacterCreate from './Components/CharacterCreate';
 import CharacterList from './Components/CharacterList';
-import Dice from './Components/Dice';
+import Dice from './Components/Dice/Dice';
 import Settings from './Components/Settings';
 import './App.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
