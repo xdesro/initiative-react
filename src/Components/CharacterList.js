@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../scss/pages/CharacterList.scss';
 
 import ViewHeader from './ViewHeader';
 import CharacterListItem from './CharacterListItem';
