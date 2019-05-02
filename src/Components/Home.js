@@ -12,20 +12,20 @@ export default class Home extends Component {
           <img src={logo} className="app-logo__icon" alt="logo" />
           <div className="app-logo__name">Initiative</div>
         </div>
-        <section class="navigation list">
-          <Link to="/CharacterCreate" class="list__item list__item--icon">
+        <section className="navigation list">
+          <Link to="/CharacterCreate" className="list__item list__item--icon">
             <FontAwesomeIcon icon="user-plus" />
             <p>Create New Character</p>
           </Link>
-          <Link to="/CharacterList" class="list__item list__item--icon">
+          <Link to="/CharacterList" className="list__item list__item--icon">
             <FontAwesomeIcon icon="th-list" />
             <p>Character List</p>
           </Link>
-          <Link to="/Dice" class="list__item list__item--icon">
+          <Link to="/Dice" className="list__item list__item--icon">
             <FontAwesomeIcon icon="dice-d20" />
             <p>Dice</p>
           </Link>
-          <Link to="/Settings" class="list__item list__item--icon">
+          <Link to="/Settings" className="list__item list__item--icon">
             <FontAwesomeIcon icon="cog" />
             <p>Settings</p>
           </Link>

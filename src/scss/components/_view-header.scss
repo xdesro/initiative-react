@@ -1,0 +1,55 @@
+.view-header {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'icon header';
+  grid-gap: 20px;
+  align-items: center;
+  width: 100vw;
+  padding: 30px 0 0;
+  margin-bottom: 40px;
+  position: relative;
+  &--fade {
+    z-index: 1;
+    overflow: hidden;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(to bottom, transparent, var(--mono-09));
+      background-size: cover;
+      z-index: -1;
+    }
+    &:after {
+      z-index: -2;
+    }
+  }
+  &__icon {
+    &:hover {
+      svg {
+        color: var(--mono-33);
+      }
+    }
+  }
+  &__title {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    margin: 0;
+    color: var(--mono-100);
+  }
+  &:after {
+    content: '';
+    width: 100px;
+    height: 120px;
+    display: block;
+    background-image: url('../img/icosahedron.svg');
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    transform: rotate(-45deg);
+    background-size: contain;
+  }
+}

@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../scss/pages/Dice.scss';
+import ViewHeader from './ViewHeader';
 
 export default class Dice extends Component {
   render() {
     return (
       <div className="Dice">
-        <header>
-          <Link to="/">
-            <FontAwesomeIcon icon="arrow-left" size="lg" />
-          </Link>
-          <h1>Dice</h1>
-        </header>
+        <ViewHeader header="Dice Roller" doesFade={true} />
         <section>
           <p>Swipe to roll, or tap for more options.</p>
           <div className="d4">
