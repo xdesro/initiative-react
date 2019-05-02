@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../scss/pages/CharacterList.scss';
+
 import ViewHeader from './ViewHeader';
+import CharacterListItem from './CharacterListItem';
 
 export default class CharacterList extends Component {
   constructor(props) {
@@ -9,45 +11,46 @@ export default class CharacterList extends Component {
     this.state = {
       characters: [
         {
+          system: 'dnd',
+          version: 5,
           name: 'Garrow Hardcheese',
           level: 3,
-          type: 'Halfling Rogue'
+          race: 'Halfling',
+          class: 'Rogue'
         },
         {
+          system: 'warhammer',
           name: 'Mella Brightwood',
           level: 3,
-          type: 'Half-elf Rogue'
+          race: 'Half-elf',
+          class: 'Rogue'
         },
         {
+          system: 'dnd',
+          version: 4,
           name: 'Long Name von Strugglethorpe',
           level: 20,
-          type: 'Dwarf Fighter'
+          race: 'Dwarf',
+          class: 'Fighter'
         }
       ]
     };
   }
   render() {
     return (
-      <div className="CharacterList">
+      <React.Fragment>
         <ViewHeader header="Character List" doesFade={true} />
-        <div className="body">
+        <div className="container">
           {this.state.characters.map(character => {
-            return (
-              <section key={character.name}>
-                <h3>{character.name}</h3>
-                <p className="character-description">
-                  Level {character.level} {character.type}
-                </p>
-              </section>
-            );
+            return <CharacterListItem {...character} />;
           })}
         </div>
-        <footer>
-          <Link to="/CharacterCreate">
-            <button>Create New Character</button>
+        <footer className="container container--bottom">
+          <Link to="/CharacterCreate" className="button">
+            Create New Character
           </Link>
         </footer>
-      </div>
+      </React.Fragment>
     );
   }
 }

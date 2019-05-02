@@ -1,0 +1,20 @@
+.button {
+  background: var(--mono-100);
+  color: var(--mono-09);
+  font-family: RobotoMono-Bold;
+  font-size: 16px;
+  letter-spacing: 1.2px;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid var(--mono-100);
+  &:hover {
+    background: var(--mono-09);
+    color: var(--mono-100);
+  }
+}
