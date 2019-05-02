@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './CharacterList.scss';
+import '../scss/pages/CharacterList.scss';
+import ViewHeader from './ViewHeader';
 
 export default class CharacterList extends Component {
   constructor(props) {
@@ -29,12 +29,7 @@ export default class CharacterList extends Component {
   render() {
     return (
       <div className="CharacterList">
-        <header>
-          <Link to="/">
-            <FontAwesomeIcon icon="arrow-left" size="lg" />
-          </Link>
-          <h1>Character List</h1>
-        </header>
+        <ViewHeader header="Character List" doesFade={true} />
         <div className="body">
           {this.state.characters.map(character => {
             return (

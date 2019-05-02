@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './CharacterCreate.scss';
+// import { Link } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import 'scss/pages/CharacterCreate.scss';
+import ViewHeader from './ViewHeader';
+
 export default class CharacterCreate extends Component {
   handleSubmit = e => {
     e.preventDefault();
@@ -10,12 +12,7 @@ export default class CharacterCreate extends Component {
   render() {
     return (
       <div className="CharacterCreate">
-        <header>
-          <Link to="/">
-            <FontAwesomeIcon icon="arrow-left" size="lg" />
-          </Link>
-          <h1>New Character</h1>
-        </header>
+        <ViewHeader header="New Character" doesFade={true} />
         <form onSubmit={this.onSubmit}>
           <label htmlFor="name">Character Name</label>
           <input name="name" placeholder="Adrienne Ferrier" />

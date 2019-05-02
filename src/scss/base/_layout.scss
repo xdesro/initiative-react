@@ -1,0 +1,44 @@
+body {
+  overflow: hidden;
+  height: 100vh;
+  --background-color: var(--mono-09);
+  background: var(--background-color);
+}
+.app {
+  display: grid;
+
+  justify-content: center;
+}
+.app-logo {
+  display: grid;
+  height: 50vh;
+  margin-bottom: 60px;
+
+  grid-auto-flow: row;
+  justify-items: center;
+  grid-row-gap: 60px;
+  align-content: end;
+  &__icon {
+    width: 150px;
+  }
+  &__name {
+    font-family: var(--font-mono);
+    --base-size: 24px;
+    font-size: var(--base-size);
+    text-align: center;
+    letter-spacing: calc(var(--base-size) * (2 / 3));
+    letter-spacing: 15px;
+    text-transform: uppercase;
+    color: var(--mono-100);
+  }
+}
+.navigation {
+  width: 270px;
+  max-width: 100%;
+  a {
+    text-decoration: none;
+    &:hover {
+      color: var(--mono-33);
+    }
+  }
+}
