@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import 'scss/pages/CharacterCreate.scss';
+import '../scss/pages/CharacterCreate.scss';
 import ViewHeader from './ViewHeader';
 
 export default class CharacterCreate extends Component {
