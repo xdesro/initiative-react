@@ -19,7 +19,11 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: linear-gradient(to bottom, transparent, var(--mono-09));
+      background-image: linear-gradient(
+        to bottom,
+        transparent,
+        var(--color-base)
+      );
       background-size: cover;
       z-index: -1;
     }
@@ -28,10 +32,11 @@
     }
   }
   &__icon {
-    color: var(--mono-100);
+    color: var(--color-primary);
+
     &:hover {
       svg {
-        color: var(--mono-33);
+        color: var(--color-neutral-02);
       }
     }
   }
@@ -39,7 +44,7 @@
     font-family: var(--font-mono);
     font-size: 24px;
     margin: 0;
-    color: var(--mono-100);
+    color: var(--color-primary);
   }
   &:after {
     content: '';
@@ -50,6 +55,7 @@
     background-repeat: no-repeat;
     position: absolute;
     right: 0;
+    filter: var(--icon-filter);
     transform: rotate(-45deg);
     background-size: contain;
   }

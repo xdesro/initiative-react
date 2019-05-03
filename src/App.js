@@ -14,12 +14,68 @@ import {
   faDiceD20,
   faCog,
   faArrowLeft,
-  faDiceD6
+  faDiceD6,
+  faArrowRight,
+  faLightbulb
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faUserPlus, faThList, faDiceD20, faCog, faArrowLeft, faDiceD6);
+library.add(
+  faUserPlus,
+  faThList,
+  faDiceD20,
+  faCog,
+  faArrowLeft,
+  faArrowRight,
+  faDiceD6,
+  faLightbulb
+);
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleToggleTheme = this.handleToggleTheme.bind(this);
+
+    this.state = {
+      lightTheme: false,
+      settings: {}
+    };
+  }
+  handleToggleTheme() {
+    this.setState({
+      lightTheme: !this.state.lightTheme
+    });
+    console.log('nice', this.state.lightTheme);
+  }
+  componentDidMount() {
+    this.toggleTheme();
+  }
+  componentDidUpdate() {
+    this.toggleTheme();
+  }
+  toggleTheme() {
+    if (this.state.lightTheme) {
+      document.documentElement.style = `
+        --color-base: var(--mono-100);
+        --color-primary: var(--mono-09);
+        --color-neutral-01: var(--mono-17);
+        --color-neutral-02: var(--mono-33);
+        --color-neutral-03: var(--mono-54);
+
+        --icon-filter: invert(1);
+      `;
+    } else {
+      document.documentElement.style = `
+      --color-base: var(--mono-09);
+      --color-primary: var(--mono-100);
+      --color-neutral-01: var(--mono-54);
+      --color-neutral-02: var(--mono-33);
+      --color-neutral-03: var(--mono-17);
+    
+      --image-filter: initial;
+      `;
+    }
+  }
   render() {
     return (
       <div className="app">
@@ -28,7 +84,16 @@ class App extends Component {
           <Route path="/CharacterCreate" component={CharacterCreate} />
           <Route path="/CharacterList" component={CharacterList} />
           <Route path="/Dice" component={Dice} />
-          <Route path="/Settings" component={Settings} />
+          <Route
+            path="/Settings"
+            render={routeProps => (
+              <Settings
+                {...routeProps}
+                {...this.state}
+                handleToggleTheme={this.handleToggleTheme}
+              />
+            )}
+          />
         </Router>
       </div>
     );

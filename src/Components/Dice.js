@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../scss/pages/Dice.scss';
 import ViewHeader from './ViewHeader';
 
 export default class Dice extends Component {

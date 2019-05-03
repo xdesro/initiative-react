@@ -1,20 +1,34 @@
 .button {
-  background: var(--mono-100);
-  color: var(--mono-09);
-  font-family: RobotoMono-Bold;
-  font-size: 16px;
-  letter-spacing: 1.2px;
-  text-align: center;
-  text-transform: uppercase;
-  display: block;
-  text-decoration: none;
   font-family: var(--font-mono);
-  padding: 15px;
-  border-radius: 8px;
+  font-size: 16px;
   font-weight: bold;
-  border: 1px solid var(--mono-100);
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-base);
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  background: var(--color-primary);
   &:hover {
-    background: var(--mono-09);
-    color: var(--mono-100);
+    color: var(--color-primary);
+    background: var(--color-base);
+  }
+  &--outline {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background-color: var(--color-base);
+    &:hover {
+      color: var(--color-base);
+      background-color: var(--color-primary);
+    }
+  }
+  &__icon {
+    margin-right: 15px;
   }
 }

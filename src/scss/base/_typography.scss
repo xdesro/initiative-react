@@ -1,13 +1,14 @@
 .list {
   display: grid;
+  list-style-type: none;
   &__item {
     font-family: var(--font-mono);
     font-size: 18px;
     display: grid;
-    color: var(--mono-100);
     grid-auto-flow: column;
     justify-content: start;
     align-items: center;
     grid-column-gap: 30px;
+    color: var(--color-primary);
   }
 }
