@@ -37,15 +37,16 @@ class App extends Component {
     this.handleToggleTheme = this.handleToggleTheme.bind(this);
 
     this.state = {
-      lightTheme: false,
+      lightTheme: localStorage.getItem('lightTheme') || false,
       settings: {}
     };
   }
   handleToggleTheme() {
+    const themeState = !this.state.lightTheme;
     this.setState({
-      lightTheme: !this.state.lightTheme
+      lightTheme: themeState
     });
-    console.log('nice', this.state.lightTheme);
+    localStorage.setItem('lightTheme', themeState);
   }
   componentDidMount() {
     this.toggleTheme();
