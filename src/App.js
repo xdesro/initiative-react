@@ -34,8 +34,6 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.handleToggleTheme = this.handleToggleTheme.bind(this);
-
     this.state = {
       lightTheme: localStorage.getItem('lightTheme') || false,
       settings: {}
@@ -91,7 +89,7 @@ class App extends Component {
               <Settings
                 {...routeProps}
                 {...this.state}
-                handleToggleTheme={this.handleToggleTheme}
+                handleToggleTheme={() => this.handleToggleTheme()}
               />
             )}
           />
