@@ -72,7 +72,7 @@ class App extends Component {
       --color-neutral-02: var(--mono-33);
       --color-neutral-03: var(--mono-17);
     
-      --image-filter: initial;
+      --icon-filter: initial;
       `;
     }
   }
