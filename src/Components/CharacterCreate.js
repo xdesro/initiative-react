@@ -3,7 +3,6 @@ import ViewHeader from './ViewHeader';
 
 export default class CharacterCreate extends Component {
   handleSubmit = e => {
-    console.log(e);
     e.preventDefault();
   };
 
