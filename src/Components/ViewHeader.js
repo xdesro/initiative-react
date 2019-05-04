@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class ViewHeader extends Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
   render() {
     return (
       <header
