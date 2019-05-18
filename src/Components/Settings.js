@@ -1,19 +1,31 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import ViewHeader from './ViewHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './Settings.scss';
 
 export default class Settings extends Component {
   render() {
+    console.log(this.props);
     return (
-      <div className="Settings">
-        <header>
-          <Link to="/">
-            <FontAwesomeIcon icon="arrow-left" size="lg" />
-          </Link>
-          <h1>Settings</h1>
-        </header>
-      </div>
+      <React.Fragment>
+        <ViewHeader header="Settings" />
+        <div className="container">
+          <ul className="list">
+            <li className="list__item">
+              <button
+                className="button button--icon button--outline"
+                onClick={this.props.handleToggleTheme}
+              >
+                <FontAwesomeIcon
+                  className="button__icon"
+                  icon="lightbulb"
+                  size="lg"
+                />
+                {this.props.lightTheme ? 'Dark' : 'Light'} Mode
+              </button>
+            </li>
+          </ul>
+        </div>
+      </React.Fragment>
     );
   }
 }
