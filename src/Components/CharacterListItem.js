@@ -11,7 +11,10 @@ export default class CharacterListItem extends Component {
           alt="Dungeons &amp; Dragons icon"
         />
         <div className="character-list-item__content">
-          <div className="character-list-item__name">{this.props.name}</div>
+          <div className="character-list-item__name">
+            <span>{this.props.name.first}</span>&nbsp;
+            <span>{this.props.name.last}</span>
+          </div>
           <div className="character-list-item__stats">
             <span>Level {this.props.level} </span>
             <span>{this.props.race} </span>

@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
+
+import * as firebase from 'firebase/app';
+import 'firebase/database';
+import firebaseConfig from './firebaseConfig';
+
 import Home from './Components/Home';
 import CharacterCreate from './Components/CharacterCreate';
 import CharacterList from './Components/CharacterList';
 import Dice from './Components/Dice/Dice';
 import Settings from './Components/Settings';
-import './App.scss';
+
 import './scss/style.scss';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faUserPlus,
@@ -33,11 +39,19 @@ library.add(
 class App extends Component {
   constructor(props) {
     super(props);
+    firebase.initializeApp(firebaseConfig);
 
     this.state = {
       lightTheme: localStorage.getItem('lightTheme') || false,
-      settings: {}
+      characters: []
     };
+  }
+  componentDidMount() {
+    this.setTheme();
+    const db = firebase.database();
+    db.ref('/data').on('value', data => {
+      this.setState({ characters: data.val() });
+    });
   }
   handleToggleTheme() {
     const themeState = !this.state.lightTheme;
@@ -46,13 +60,10 @@ class App extends Component {
     });
     localStorage.setItem('lightTheme', themeState);
   }
-  componentDidMount() {
-    this.toggleTheme();
-  }
   componentDidUpdate() {
-    this.toggleTheme();
+    this.setTheme();
   }
-  toggleTheme() {
+  setTheme() {
     if (this.state.lightTheme) {
       document.documentElement.style = `
         --color-base: var(--mono-100);
@@ -76,19 +87,24 @@ class App extends Component {
     }
   }
   render() {
+    const characters = this.state.characters;
     return (
       <div className="app">
         <Router>
           <Route exact path="/" component={Home} />
           <Route path="/CharacterCreate" component={CharacterCreate} />
-          <Route path="/CharacterList" component={CharacterList} />
+          <Route
+            path="/CharacterList"
+            render={routeProps => (
+              <CharacterList {...routeProps} characters={characters} />
+            )}
+          />
           <Route path="/Dice" component={Dice} />
           <Route
             path="/Settings"
             render={routeProps => (
               <Settings
                 {...routeProps}
-                {...this.state}
                 handleToggleTheme={() => this.handleToggleTheme()}
               />
             )}
