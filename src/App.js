@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
+import axios from 'axios';
 import * as firebase from 'firebase/app';
 import 'firebase/database';
 import firebaseConfig from './firebaseConfig';
@@ -48,10 +49,17 @@ class App extends Component {
   }
   componentDidMount() {
     this.setTheme();
-    const db = firebase.database();
-    db.ref('/data').on('value', data => {
-      this.setState({ characters: data.val() });
-    });
+
+    const URL = 'https://crit-fail.firebaseio.com/data.json';
+    axios
+      .get(URL)
+      .then(res => {
+        console.log(res);
+        this.setState({ characters: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
   handleToggleTheme() {
     const themeState = !this.state.lightTheme;
