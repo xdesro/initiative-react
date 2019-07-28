@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 import axios from 'axios';
+// import { characters } from '/backend/db';
 import * as firebase from 'firebase/app';
 import 'firebase/database';
 import firebaseConfig from './firebaseConfig';
@@ -47,20 +48,50 @@ class App extends Component {
       characters: []
     };
   }
-  componentDidMount() {
+  async componentDidMount() {
     this.setTheme();
+    const characters = await this.getCharacterData();
+    this.setState({ characters });
+  }
 
+  getCharacterData = async () => {
     const URL = 'https://crit-fail.firebaseio.com/data.json';
-    axios
+    const characters = await axios
       .get(URL)
       .then(res => {
-        console.log(res);
-        this.setState({ characters: res.data });
+        return res.data.characters;
       })
       .catch(err => {
         console.log(err);
       });
-  }
+
+    const classes = await axios
+      .get(URL)
+      .then(res => {
+        return res.data.classes;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    const races = await axios
+      .get(URL)
+      .then(res => {
+        return res.data.races;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    const characterArr = characters;
+    characterArr.map(character => {
+      character.race = races[character.race];
+      character.class = classes[character.class];
+      return character;
+    });
+    return characterArr;
+  };
+
   handleToggleTheme() {
     const themeState = !this.state.lightTheme;
     this.setState({
