@@ -7,7 +7,7 @@ export default class CharacterListItem extends Component {
       <div className="character-list-item">
         <img
           className="character-list-item__system-icon"
-          src={require('../img/icon-dnd.png')}
+          src={require('../assets/img/icon-dnd.png')}
           alt="Dungeons &amp; Dragons icon"
         />
         <div className="character-list-item__content">
