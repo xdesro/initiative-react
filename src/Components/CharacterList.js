@@ -11,15 +11,21 @@ export default class CharacterList extends Component {
       characters: this.props.characters
     };
   }
-  componentDidMount() {}
+  componentDidMount() { }
   render() {
+    let characters = [];
+    if (this.props.characters && this.props.characters.length) {
+      this.props.characters.map((character, index) => (
+        characters.push(<CharacterListItem key={index} {...character} />)
+      ));
+    } else {
+      characters.push("You do not currently have any characters!")
+    }
     return (
       <React.Fragment>
         <ViewHeader header="Character List" doesFade={true} />
         <div className="container">
-          {this.props.characters.map((character, index) => (
-            <CharacterListItem {...character} />
-          ))}
+          {characters}
         </div>
         <footer className="container container--bottom">
           <Link to="/CharacterCreate" className="button">

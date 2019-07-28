@@ -55,7 +55,7 @@ class App extends Component {
       .get(URL)
       .then(res => {
         console.log(res);
-        this.setState({ characters: res.data });
+        this.setState({ characters: res.data.characters });
       })
       .catch(err => {
         console.log(err);
@@ -100,7 +100,12 @@ class App extends Component {
       <div className="app">
         <Router>
           <Route exact path="/" component={Home} />
-          <Route path="/CharacterCreate" component={CharacterCreate} />
+          <Route
+            path="/CharacterCreate"
+            render={routeProps => (
+              <CharacterCreate {...routeProps} newCharacter={true} />
+            )}
+          />
           <Route
             path="/CharacterList"
             render={routeProps => (
