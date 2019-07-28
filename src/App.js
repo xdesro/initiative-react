@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 import axios from 'axios';
-// import { characters } from '/backend/db';
 import * as firebase from 'firebase/app';
 import 'firebase/database';
 import firebaseConfig from './firebaseConfig';
