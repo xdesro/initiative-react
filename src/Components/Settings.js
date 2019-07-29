@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class Settings extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <React.Fragment>
         <ViewHeader header="Settings" />

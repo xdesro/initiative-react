@@ -44,7 +44,9 @@ class App extends Component {
 
     this.state = {
       lightTheme: localStorage.getItem('lightTheme') || false,
-      characters: []
+      characters: {},
+      races: {},
+      classes: {}
     };
   }
   async componentDidMount() {
@@ -67,11 +69,13 @@ class App extends Component {
     const classes = await axios
       .get(URL)
       .then(res => {
+        this.setState({ classes: res.data.classes });
         return res.data.classes;
       })
       .catch(err => {
         console.log(err);
       });
+    // this.setState({ classes });
 
     const races = await axios
       .get(URL)
@@ -81,14 +85,20 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
+    console.log(races);
+    await this.setState({ races });
 
-    const characterArr = characters;
-    characterArr.map(character => {
-      character.race = races[character.race];
-      character.class = classes[character.class];
+    const characterObj = characters;
+    Object.values(characterObj).map(character => {
+      if (character.race) {
+        character.race = races[character.race];
+      }
+      if (character.class) {
+        character.class = classes[character.class];
+      }
       return character;
     });
-    return characterArr;
+    return characterObj;
   };
 
   handleToggleTheme() {
@@ -125,12 +135,21 @@ class App extends Component {
     }
   }
   render() {
-    const characters = this.state.characters;
+    const { characters, races, classes } = this.state;
     return (
       <div className="app">
         <Router>
           <Route exact path="/" component={Home} />
-          <Route path="/CharacterCreate" component={CharacterCreate} />
+          <Route
+            path="/CharacterCreate"
+            render={routeProps => (
+              <CharacterCreate
+                {...routeProps}
+                races={races}
+                classes={classes}
+              />
+            )}
+          />
           <Route
             path="/CharacterList"
             render={routeProps => (
