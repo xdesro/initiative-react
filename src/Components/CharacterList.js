@@ -11,7 +11,6 @@ export default class CharacterList extends Component {
       characters: this.props.characters
     };
   }
-  componentDidMount() { }
   render() {
     let characters = [];
     if (this.props.characters && this.props.characters.length) {
