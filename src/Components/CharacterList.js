@@ -11,14 +11,13 @@ export default class CharacterList extends Component {
       characters: this.props.characters
     };
   }
-  componentDidMount() {}
   render() {
     return (
       <React.Fragment>
         <ViewHeader header="Character List" doesFade={true} />
         <div className="container">
           {this.props.characters.map((character, index) => (
-            <CharacterListItem {...character} />
+            <CharacterListItem {...character} key={character.id} />
           ))}
         </div>
         <footer className="container container--bottom">

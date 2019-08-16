@@ -82,13 +82,16 @@ class App extends Component {
         console.log(err);
       });
 
-    const characterArr = characters;
-    characterArr.map(character => {
-      character.race = races[character.race];
-      character.class = classes[character.class];
-      return character;
+    const charactersArray = Object.entries(characters);
+    const flattenedCharactersArray = charactersArray.map(character => {
+      const newCharacter = character[1];
+      console.log(newCharacter.race, races);
+      Object.assign(newCharacter, {
+        id: character[0]
+      });
+      return newCharacter;
     });
-    return characterArr;
+    return flattenedCharactersArray;
   };
 
   handleToggleTheme() {

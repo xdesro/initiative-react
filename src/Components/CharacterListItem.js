@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class CharacterListItem extends Component {
   render() {
+    const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
     return (
       <div className="character-list-item">
         <img
@@ -12,13 +13,12 @@ export default class CharacterListItem extends Component {
         />
         <div className="character-list-item__content">
           <div className="character-list-item__name">
-            <span>{this.props.name.first}</span>&nbsp;
-            <span>{this.props.name.last}</span>
+            {capitalize(this.props.name)}
           </div>
           <div className="character-list-item__stats">
-            <span>Level {this.props.level} </span>
-            <span>{this.props.race} </span>
-            <span>{this.props.class} </span>
+            <span>Level {this.props.level}</span>{' '}
+            <span>{capitalize(this.props.race)}</span>{' '}
+            <span>{capitalize(this.props.class)}</span>
           </div>
         </div>
         <FontAwesomeIcon
