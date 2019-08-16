@@ -24,7 +24,9 @@ export default class CharacterList extends Component {
       <React.Fragment>
         <ViewHeader header="Character List" doesFade={true} />
         <div className="container">
-          {characters}
+          {this.props.characters.map((character, index) => (
+            <CharacterListItem {...character} key={character.id} />
+          ))}
         </div>
         <footer className="container container--bottom">
           <Link to="/CharacterCreate" className="button">
