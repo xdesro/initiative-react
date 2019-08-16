@@ -6,25 +6,27 @@ export default class CharacterCreate extends Component {
     super(props);
     this.state = {
       character: {
-        name: {
-          first: "",
-          last: "",
-        },
-        race: "",
-        class: "",
-        level: "",
-        system: "",
+        name: '',
+        race: '',
+        class: '',
+        level: '',
+        system: ''
       },
-      newCharacter: false,
+      newCharacter: false
     };
   }
 
   componentDidMount() {
     let { character } = this.state;
     let { newCharacter } = this.props;
-    if (this.props && this.props.location && this.props.location.state && this.props.location.state.character) {
+    if (
+      this.props &&
+      this.props.location &&
+      this.props.location.state &&
+      this.props.location.state.character
+    ) {
       character = this.props.location.state.character;
-      newCharacter = this.props.location.state.newCharacter
+      newCharacter = this.props.location.state.newCharacter;
     }
     this.setState({ character, newCharacter });
   }
@@ -38,23 +40,20 @@ export default class CharacterCreate extends Component {
     const value = target.value;
     const name = target.name;
     let { character } = this.state;
-    if (name !== "first " && name !== "last ") {
-      character[name] = value;
-    } else {
-      character.name[name] = value;
-    }
-    this.setState({ character })
+
+    character[name] = value;
+    this.setState({ character });
   }
 
   render() {
     const { character } = this.state;
     return (
       <div className="CharacterCreate">
-        {this.state.newCharacter ?
+        {this.state.newCharacter ? (
           <ViewHeader header="New Character" doesFade={true} />
-          :
+        ) : (
           <ViewHeader header="Character Sheet" doesFade={true} />
-        }
+        )}
         <div className="container">
           <form onSubmit={this.handleSubmit} className="form">
             <div className="form__control">
@@ -62,23 +61,11 @@ export default class CharacterCreate extends Component {
                 First Name
               </label>
               <input
-                name="first"
+                name="name"
                 className="form__input"
                 placeholder="Adrienne"
-                defaultValue={character && character.name ? character.name.first : ""}
-                onBlur={(e) => this.handleChange(e)}
-              />
-            </div>
-            <div className="form__control">
-              <label className="form__label" htmlFor="lastname">
-                Last Name
-              </label>
-              <input
-                name="last"
-                className="form__input"
-                placeholder="Ferrier"
-                defaultValue={character && character.name ? character.name.last : ""}
-                onBlur={(e) => this.handleChange(e)}
+                defaultValue={character && character.name ? character.name : ''}
+                onBlur={e => this.handleChange(e)}
               />
             </div>
             <div className="form__control">
@@ -89,8 +76,8 @@ export default class CharacterCreate extends Component {
                 name="race"
                 className="form__input"
                 placeholder="Human"
-                defaultValue={character.race || ""}
-                onBlur={(e) => this.handleChange(e)}
+                defaultValue={character.race || ''}
+                onBlur={e => this.handleChange(e)}
               />
             </div>
             <div className="form__control">
@@ -101,8 +88,8 @@ export default class CharacterCreate extends Component {
                 name="class"
                 className="form__input"
                 placeholder="Bard"
-                defaultValue={character.class || ""}
-                onBlur={(e) => this.handleChange(e)}
+                defaultValue={character.class || ''}
+                onBlur={e => this.handleChange(e)}
               />
             </div>
             <div className="form__control">
@@ -113,8 +100,8 @@ export default class CharacterCreate extends Component {
                 name="level"
                 className="form__input"
                 placeholder="4"
-                defaultValue={character.level || ""}
-                onBlur={(e) => this.handleChange(e)}
+                defaultValue={character.level || ''}
+                onBlur={e => this.handleChange(e)}
               />
             </div>
             <div className="form__control">
@@ -126,7 +113,7 @@ export default class CharacterCreate extends Component {
                 name="system"
                 className="form__input"
                 defaultValue="D&amp;D 5e"
-                onBlur={(e) => this.handleChange(e)}
+                onBlur={e => this.handleChange(e)}
               />
             </div>
             <div className="form__control">

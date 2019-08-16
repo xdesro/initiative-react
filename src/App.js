@@ -85,7 +85,6 @@ class App extends Component {
     const charactersArray = Object.entries(characters);
     const flattenedCharactersArray = charactersArray.map(character => {
       const newCharacter = character[1];
-      console.log(newCharacter.race, races);
       Object.assign(newCharacter, {
         id: character[0]
       });
